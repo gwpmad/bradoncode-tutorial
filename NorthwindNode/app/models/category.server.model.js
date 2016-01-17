@@ -24,7 +24,7 @@ var CategorySchema = new Schema({
 		// types are defined e.g. String, Date, Number (http://mongoosejs.com/docs/guide.html)
 		type: Date,
 		// default values can be set
-		defaulit: Date.now
+		default: Date.now
 	},
 	description: {
 		type: String,
