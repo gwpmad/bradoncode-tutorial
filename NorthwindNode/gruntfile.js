@@ -12,6 +12,8 @@ module.exports = function(grunt) {
 	};
 
 	// Project Configuration
+	// GM note: each of the registerTask-s below has an entry here (e.g. default, debug, test, secure...)
+	// In the registerTask lines at the bottom, the attributes entered here are referenced.
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		watch: {
