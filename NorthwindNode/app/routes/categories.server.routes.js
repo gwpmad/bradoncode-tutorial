@@ -11,9 +11,14 @@ module.exports = function(app) {
 
     app.route('/categories')
         // define get request
-        .get(categories.list);
-};
+        .get(categories.list)
+        // define post request
+        .post(categories.create);
 
+    // the categoryId param is added to the params object for the request
+    app.route('/categories/:categoryId') //req.params will include whatever is entered here
+        .get(categories.read);
+};
 
 // The route detail has been added to the app variable (which is the instance
 // of Express being used). The .get function for the app route 'function' is set
