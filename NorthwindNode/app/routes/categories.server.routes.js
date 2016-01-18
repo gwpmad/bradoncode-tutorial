@@ -17,8 +17,10 @@ module.exports = function(app) {
 
     // the categoryId param is added to the params object for the request
     app.route('/categories/:categoryId') //req.params will include whatever is entered here
-        .get(categories.read);
-};
+        .get(categories.read)
+        .put(categories.update)
+        .delete(categories.delete);
+
 
 // The route detail has been added to the app variable (which is the instance
 // of Express being used). The .get function for the app route 'function' is set
@@ -36,3 +38,15 @@ module.exports = function(app) {
 
 // The route doesn't interact directly with the model. That is the controller's
 // job.
+
+
+// ** Finish by binding the article middleware **
+// What's this? Where the categoryId is present in the URL
+// the logic to 'get by id' is handled by this single function
+// and added to the request object i.e. request.category.
+// GM note: This is called before the lines above when read, update or delete is used;
+// it binds the category found by the id to the request that is sent. See the note
+// in capitals in categories.server.controller.js.
+  app.param('categoryId', categories.categoryByID);
+
+};
