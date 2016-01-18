@@ -16,7 +16,7 @@ module.exports = function(app) {
         .post(categories.create);
 
     // the categoryId param is added to the params object for the request
-    app.route('/categories/:categoryId') //req.params will include whatever is entered here
+    app.route('/categories/:categoryId') //This calls the 'categoryId' that is created at the bottom
         .get(categories.read)
         .put(categories.update)
         .delete(categories.delete);
@@ -48,5 +48,6 @@ module.exports = function(app) {
 // it binds the category found by the id to the request that is sent. See the note
 // in capitals in categories.server.controller.js.
   app.param('categoryId', categories.categoryByID);
+  // adding a param - defining 'categoryId'
 
 };

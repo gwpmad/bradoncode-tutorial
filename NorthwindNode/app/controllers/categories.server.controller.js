@@ -89,7 +89,7 @@ exports.delete = function(req, res) {
             message: errorHandler.getErrorMessage(err)
         });
     } else {
-      res.json(category);
+      res.json(category); // return the category you've deleted (I think)
     }
   });
 
